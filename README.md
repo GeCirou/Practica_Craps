@@ -22,6 +22,7 @@ Para los pagos fraccionarios, el motor de la app utiliza multiplicadores preciso
 Esto garantiza que si apuestas $4.000$ al Craps 2-12, la respuesta correcta sea $39.000$, entrenando al usuario en el manejo de restos y fracciones de ficha.
 
 Instalación y Uso
+Podés probar el proyecto en Vercel: https://practica-craps.vercel.app
 Si querés correr este proyecto localmente:
     Cloná el repositorio: $ git clone https://github.com/GeCirou/Practica_Craps.git
     Instalá las dependencias: $ npm install
