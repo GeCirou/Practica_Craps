@@ -71,6 +71,14 @@ const GameCard = ({ leopard, selectedExercise, onResult }) => {
   return (
     <form className="game-card" onSubmit={handleSubmit}>
       <h2>{selectedExercise.label} ({multiplierText})</h2>
+      <p>
+        El valor minimo a usar es 1000.<br></br>
+        los resultados se redondean a los 1000 más cercanos, por ejemplo:
+        <ul>
+          <li>1200 se redondea a 1000</li>
+          <li>1500 se redondea a 2000</li>
+        </ul>
+      </p>
       
       <div className="setup-section">
         <label>Min: </label>
