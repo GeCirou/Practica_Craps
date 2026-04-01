@@ -2,14 +2,14 @@ const Menu = ({ exercises, onSelectExercise, selected }) => {
   
   // 1. Definimos la lógica de visualización una sola vez fuera del loop
   const getLabelDisplay = (exercise) => {
-    if (exercise.label === "Craps 2- 12") return "x10 - 1/3";
-    if (exercise.label === "Craps 3") return "x4 + 1/3";
+    if (exercise.label === "Craps 2- 12") return "x 10 - 1/3";
+    if (exercise.label === "Craps 3") return "x 4 + 1/3";
 
     if (exercise.multiplier <= 2) {
       return `${(exercise.multiplier * 100).toFixed(1)}%`;
     }
 
-    return `x${exercise.multiplier}`;
+    return `x ${exercise.multiplier}`;
   };
 
   const handleSelection = (e) => {

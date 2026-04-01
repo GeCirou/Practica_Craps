@@ -171,7 +171,7 @@ button {
     color: var(--accent-gold);
     border: 1px solid var(--accent-gold);
     border-radius: 12px;
-    margin-top: 30px;
+    margin: 30px auto;
     padding: 15px 30px;
     cursor: pointer;
     text-transform: uppercase;
@@ -250,6 +250,5 @@ select option {
 
     button {
         width: 100%;
-        margin: 20px auto;
     }
 }

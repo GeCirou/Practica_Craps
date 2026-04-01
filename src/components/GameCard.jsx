@@ -57,26 +57,30 @@ const GameCard = ({ leopard, selectedExercise, onResult }) => {
   };
 
   const getMultiplierDisplay = () => {
-    if (selectedExercise.label === "Craps 2- 12") return "x10 - 1/3";
-    if (selectedExercise.label === "Craps 3") return "x4 + 1/3";
+    if (selectedExercise.label === "Craps 2- 12") return "x 10 - 1/3";
+    if (selectedExercise.label === "Craps 3") return "x 4 + 1/3";
 
     if (selectedExercise.multiplier <= 2) {
       return `${(selectedExercise.multiplier * 100).toFixed(0)}%`;
     }
-    return `x${selectedExercise.multiplier}`;
+    return `x ${selectedExercise.multiplier}`;
   };
 
   const multiplierText = getMultiplierDisplay();
+
+  const formatNumber = (num) => {
+  return Number(num).toLocaleString('es-AR');
+};
 
   return (
     <form className="game-card" onSubmit={handleSubmit}>
       <h2>{selectedExercise.label} ({multiplierText})</h2>
       <p>
-        El valor minimo a usar es 1000.<br></br>
-        los resultados se redondean a los 1000 más cercanos, por ejemplo:
+        El valor minimo a usar es 1.000.<br></br>
+        los resultados se redondean a los 1.000 más cercanos, por ejemplo:
         <ul>
-          <li>1200 se redondea a 1000</li>
-          <li>1500 se redondea a 2000</li>
+          <li>1.200 se redondea a 1.000</li>
+          <li>1.500 se redondea a 2.000</li>
         </ul>
       </p>
       
@@ -86,6 +90,7 @@ const GameCard = ({ leopard, selectedExercise, onResult }) => {
           type="number" 
           value={min} 
           onChange={(e) => setMin(e.target.value)} 
+          onFocus={(e) => e.target.select()} 
           step="1000"
           placeholder="0"
         />
@@ -95,6 +100,7 @@ const GameCard = ({ leopard, selectedExercise, onResult }) => {
           type="number" 
           value={max} 
           onChange={(e) => setMax(e.target.value)} 
+          onFocus={(e) => e.target.select()} 
           step="1000"
           placeholder="0"
         />
@@ -104,14 +110,14 @@ const GameCard = ({ leopard, selectedExercise, onResult }) => {
 
       {baseNumber > 0 && (
         <div className="game-section">
-          <p>¿Cuánto es <strong>{baseNumber}</strong> al {multiplierText}?</p>
+          <p>¿Cuánto es <strong>{formatNumber(baseNumber)}</strong> {multiplierText.startsWith("x ") ? multiplierText : `al ${multiplierText}`}?</p>
           <label>Respuesta: </label>
         <input 
           type="number" 
           value={userAnswer} 
           onChange={(e) => setUserAnswer(e.target.value)} 
           disabled={baseNumber === 0}
-          placeholder="1000"
+          placeholder="1.000"
           autoFocus
         />
         <button type="submit" disabled={baseNumber === 0}>Verificar</button>
