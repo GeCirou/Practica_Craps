@@ -42,7 +42,7 @@ const GameCard = ({ leopard, selectedExercise, onResult }) => {
       alert("¡Correcto!");
       setBaseNumber(0);
     } else {
-      alert(`Casi... la respuesta era ${correctAnswer}. ¡Seguí practicando!`);
+      alert(`Casi... la respuesta era ${formatNumber(correctAnswer)}. ¡Seguí practicando!`);
     }
 
     onResult(isCorrect);
@@ -110,7 +110,7 @@ const GameCard = ({ leopard, selectedExercise, onResult }) => {
 
       {baseNumber > 0 && (
         <div className="game-section">
-          <p>¿Cuánto es <strong>{formatNumber(baseNumber)}</strong> {multiplierText.startsWith("x ") ? multiplierText : `al ${multiplierText}`}?</p>
+          <p>¿Cuánto es <strong>{formatNumber(baseNumber)}</strong> {multiplierText?.toLowerCase().trim().startsWith('x') ? multiplierText : `al ${multiplierText}`}?</p>
           <label>Respuesta: </label>
         <input 
           type="number" 
